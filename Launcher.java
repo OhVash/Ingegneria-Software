@@ -1,5 +1,6 @@
-package it.unipr.ingsw.concurrency.esame062224;
+package it.unipr.ingsw.concurrency.esame070624;
 
 public interface Launcher {
-    public void execute(Runnable runnable);
+	public int start(Activity[] activities);
+	public int getTotal();
 }
