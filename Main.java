@@ -1,19 +1,12 @@
-package it.unipr.ingsw.concurrency.esame220623;
-
-import java.util.List;
+package it.unipr.esame24062024;
 
 public class Main {
- public static void main(String[] args) {
-	WorkerManager manager = WorkerManager.getInstance();
-	List<Worker> workers = manager.getWorkers();
-	
-	for (Worker worker : workers) {
-		Thread thread = new Thread(()->{
-			worker.execute();
-			System.out.println(Thread.currentThread().getName() + "Done!");
-		});
-		thread.start();
-				
+	public static void main(String[] args) {
+		Launcher mainLauncher = LauncherSingleton.getInstance();
+		Job job = new JobImpl();
+		
+		for(int i = 0; i<100; i++) {
+			mainLauncher.activate(job);
+		}
 	}
-}
 }
